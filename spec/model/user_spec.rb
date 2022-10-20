@@ -24,4 +24,20 @@ RSpec.describe User, type: :model do
     subject.posts_counter = 'afgw'
     expect(subject).to_not be_valid
   end
+  
+  it 'photo should be present' do
+    subject.photo = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'bio should be present' do
+    subject.bio = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'bio should be long' do
+    subject.bio = 't'
+    expect(subject).to_not be_valid
+  end
+
 end
