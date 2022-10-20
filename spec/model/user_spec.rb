@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     subject.posts_counter = 'afgw'
     expect(subject).to_not be_valid
   end
-  
+
   it 'photo should be present' do
     subject.photo = nil
     expect(subject).to_not be_valid
@@ -40,4 +40,16 @@ RSpec.describe User, type: :model do
     expect(subject).to_not be_valid
   end
 
+  it 'it should have post freater then or equal to 0' do
+    subject.posts_counter = 0
+    expect(subject).to be_valid
+  end
+
+  describe 'Should test recent post method' do
+    before { 4.times { |post_number| Post.create(author_id: subject.id, title: "this is the post #{post_number}") } }
+
+    it 'User should have three recent posts' do
+      expect(subject.recent_posts).to eq(subject.posts.last(3))
+    end
+  end
 end
