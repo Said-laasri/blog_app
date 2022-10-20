@@ -24,46 +24,50 @@ Rails
 # Getting Started
 
 Clone this repository
-$ git clone git@github.com:NickEmma/blog_app.git
-$ cd blog_app
+`$ git clone git@github.com:NickEmma/blog_app.git`
+
+`$ cd blog_app`
 
 Commands to run
 
 Run
 
-$ bundle install
+`$ bundle install`
 
 To get all the gems required for the project
 
 Then, run
 
-$ npm install
+`$ npm install`
 
 To install packages such as style linters
 
 To check linters locally, use
 
-$ rubocop
-
-$ npx stylelint "\*_/_.{css,scss}"
+`$ rubocop`
+`$ npx stylelint "\*_/_.{css,scss}"`
 
 Once you have the project correctly set up, run
 
-$ bin/rails db:setup
+`$ bin/rails db:setup`
 
 To run all migrations, create the database for testing and for development, and insert some data into the database for you to visualize the changes
 
 Finally, each time you make changes to the project, run
 
-$ bundle exec rspec /spec
+`$ bundle exec rspec /spec`
 
 In the root folder to check the consistency of the app. Please don't make changes to the tests unless completely necessary, and mention it in your PR description.
 
 Important note: Since this project uses TailwindCSS for the styling, you need to run:
 
-$ ./bin/dev
+`$ ./bin/dev`
 
 For you to see the styling being applied in the browser during development
+
+To run all test Run
+
+`$ rspec spec/`
 
 ## Authors
 

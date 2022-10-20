@@ -34,5 +34,4 @@ RSpec.describe Post, type: :model do
     subject.likes_counter = 0
     expect(subject.likes_counter).to eq(0)
   end
-
 end
