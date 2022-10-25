@@ -36,6 +36,8 @@ Run
 
 To get all the gems required for the project
 
+## Start
+
 to start the app please run
 
 ` $ rails server`

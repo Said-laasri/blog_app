@@ -31,10 +31,10 @@ end
 # Path: spec/Request/user_spec.rb
 
 RSpec.describe UsersController, type: :request do
-  
   describe 'GET show' do
     before(:example) do
-     user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.', posts_counter: 0)
+      user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
+                         posts_counter: 0)
       get "/users/#{user.id}"
     end
 
