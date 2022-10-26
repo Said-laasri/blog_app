@@ -1,1 +1,9 @@
-<h2>showing list of posts for a given user</h2>
+<h4>Post:<%= @post.id %> by <%= @post.author.name %></h4> 
+<h5>Comments:<%= @post.comments_counter %></h5>
+<h5>Likes:<%= @post.likes_counter %></h5>
+<h4><%= @post.text %></h4>
+<hr/>
+<% @post.recent_comment.each do |comment| %>
+    <h5><%= comment.author.name %>: <%= comment.text %> </h5>
+<% end %>
+<a href='/users/'><button>Go back</button></a>
