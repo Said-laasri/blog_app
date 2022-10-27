@@ -1,0 +1,4 @@
+<%= form_with url: "/posts/#{@post.id}/comments", scope: :comments do |form| %>
+  <%= form.text_area :text, placeholder: "Type something here...", rows: 14, required: true %>
+  <%= form.submit "Comment" %>
+<% end %>

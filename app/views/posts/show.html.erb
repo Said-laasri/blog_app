@@ -6,7 +6,14 @@
         <h5>Likes:<%= @post.likes_counter %></h5>
      </div>
     <h4><%= @post.text %></h4>
-    <hr/>
+
+    <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |form| %>
+      <%= form.submit "Like this post" %>
+    <% end %>
+    
+     <%= render partial: "create_comments", local: { post: @post } %> 
+
+
     <% @post.recent_comment.each do |comment| %>
         <h5><%= comment.author.name %>: <%= comment.text %> </h5>
     <% end %>
