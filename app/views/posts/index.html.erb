@@ -8,16 +8,20 @@
     <h3 class='d-user'>Number of posts:<%= @user.posts_counter%> </h3>
   </div>
 </div>
+
+
 <% @posts = Post.where(author_id: @user.id)  %>
 <% @posts.each do |post| %>
   <div class='bio font'>
-    <a href='/users/<%= @user.id %>/posts/<%= post.id %>'><h4>#<%= post.id %></h4></a> 
-    <h4><%= post.text %></h4>
+    <a href='/users/<%= @user.id %>/posts/<%= post.id %>'><%= post.id %>: <%= post.title%></a> 
     <div class='padd'>
       <h5>Comments: <%= post.comments_counter %></h5>
       <h5>Likes: <%= post.likes_counter %></h5>
     </div>
-    <hr/>
+
+   
+  
+
     <% post.recent_comment.each do |comment| %>
       <h5><%= comment.author.name %>: <%= comment.text %> </h5>
     <% end %>
