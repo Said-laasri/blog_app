@@ -22,14 +22,14 @@ class PostsController < ApplicationController
         if new_post.save
           redirect_to "/users/#{new_post.author_id}/posts/", notice: 'Post was successfully created.'
         else
-          render :new, status:'Error occured will creating post!'
+          render :new, status: 'Error occured will creating post!'
         end
       end
     end
   end
 
   private
-  
+
   def post_params
     params.require(:post).permit(:title, :text)
   end
