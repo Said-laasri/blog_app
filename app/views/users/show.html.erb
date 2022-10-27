@@ -11,10 +11,13 @@
 <article class='bio'>
   <h4>Bio</h4>
   <p><%= @user.bio %> </p>
+
+<%= link_to "Add New Post", "/users/#{@user.id}/posts/new", {:class => "see_all_post"}%> 
+
 </article>
 <% @user.recent_posts.each_with_index do |post, index| %>
     <div class='d-flex bio'>
-    <a href='/users/<%= @user.id %>/posts'> <h3>Post # <%= index + 1 %></h3></a>
+    <a href='/users/<%= @user.id %>/posts'> <h3>Post # <%= index + 1 %> <%= post.title %></h3></a>
     <h4><%= post.text %></h4>
     <h5>Comments:<%= post.comments_counter %></h5>
     <h5>Likes:<%= post.likes_counter %></h5>
