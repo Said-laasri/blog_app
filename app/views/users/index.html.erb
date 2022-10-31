@@ -1,14 +1,14 @@
 <h1>List of users:</h1>
 <% @users.each do |user| %>
   <div class='d-flex'>
-    <div class='img wid >
-    <img src ='<% user.photo %>' alt='user_image'  />
+    <div class='img wid'>
+    <img src ='<%=user.photo%>' alt='user_image'/>
     </div>
     <div class='d-flex img'>
       <h2>Name: <%= user.name %></h2>
       <h3 class='d-user'>Number of posts:<%= user.posts_counter %></h3>
        <button>
-          <a href='/users/<%= user.id %>'> More info </a>
+          <a id="<%=user.id%>" href='/users/<%= user.id %>'>More info</a>
        </button>
     </div>
   </div>
