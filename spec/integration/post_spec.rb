@@ -48,16 +48,20 @@ RSpec.describe 'Post', type: :system do
     end
 
     it 'I can see a section for pagination if there are more posts than fit on the view.' do
-      click_on('Pagination')
-      expect(page).to have_current_path("/users/#{@user.id}/posts/#{@post.id}")
+      click_on('paginatation')
+      expect(page).to have_current_path("/users/#{@user.id}/posts")
     end
   end
 
-  describe 'index page' do
+  describe 'show page' do
     before(:each) do
       @user = User.create(name: 'said', photo: 'https://media.tenor.com/TQ3Jul8r2DwAAAAC/anime-boy.gif',
                           bio: 'I am software enginner')
       @post = Post.create(author: @user, title: 'the unit tests', text: 'anything on unit tests')
+      Comment.create(author: @user, post: @post, text: 'comment1')
+      Comment.create(author: @user, post: @post, text: 'comment2')
+      Like.create(author: @user, post: @post)
+      Like.create(author: @user, post: @post)
       visit "/users/#{@user.id}/posts/#{@post.id}"
     end
 
@@ -70,11 +74,11 @@ RSpec.describe 'Post', type: :system do
     end
 
     it ' I can see how many comments it has' do
-      expect(page.find("#comment#{@post.id}")).to have_content("Comments: #{@post.comments_counter}")
+      expect(page.find("#comment#{@post.id}")).to have_content("Comments:#{@post.comments_counter}")
     end
 
     it ' I can see how many likes it has' do
-      expect(page.find("#like#{@post.id}")).to have_content("Likes: #{@post.likes_counter}")
+      expect(page.find("#like#{@post.id}")).to have_content("Likes:#{@post.likes_counter}")
     end
 
     it 'I can see some of the posts body.' do
@@ -82,8 +86,8 @@ RSpec.describe 'Post', type: :system do
     end
 
     it 'I can see the username of each commentor.' do
-      expect(page).to have_content(@post.comments.first.user.name)
-      expect(page).to have_content(@post.comments[1].user.name)
+      expect(page).to have_content(@post.comments.first.author.name)
+      expect(page).to have_content(@post.comments[1].author.name)
     end
 
     it 'I can see the comment each commentor left.' do
