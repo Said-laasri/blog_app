@@ -12,10 +12,11 @@
 
 <% @posts.each do |post| %>
   <div class='bio font'>
-    <a href='/users/<%= @user.id %>/posts/<%= post.id %>'><%= post.id %>: <%= post.title%></a> 
+    <a id="<%=post.id%>" href='/users/<%= @user.id %>/posts/<%= post.id %>'><%= post.id %>: <%= post.title%></a> 
+    <p><%=post.text%></p>
     <div class='padd'>
-      <h5>Comments: <%= post.comments_counter %></h5>
-      <h5>Likes: <%= post.likes_counter %></h5>
+      <h5 id="comment<%=post.id%>">Comments: <%= post.comments_counter %></h5>
+      <h5 id="like<%=post.id%>">Likes: <%= post.likes_counter %></h5>
     </div>
 
     <% post.comments.each do |comment| %>
