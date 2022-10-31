@@ -22,7 +22,7 @@ RSpec.describe 'User', type: :system do
     end
 
     it 'When I click on a user, I am redirected to that users show page.' do
-      click_on("#{@user.id}")
+      click_on(@user.id.to_s)
       expect(page).to have_current_path("/users/#{@user.id}")
     end
   end
@@ -67,7 +67,7 @@ RSpec.describe 'User', type: :system do
     end
 
     it 'When I click a users post, it redirects me to that posts show page' do
-      click_on("#{@post.id}")
+      click_on(@post.id.to_s)
       expect(page).to have_current_path("/users/#{@user.id}/posts")
     end
 

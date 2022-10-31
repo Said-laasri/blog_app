@@ -43,7 +43,7 @@ RSpec.describe 'Post', type: :system do
     end
 
     it 'When I click a post, it redirects me to that posts show page' do
-      click_on("#{@post.id}")
+      click_on(@post.id.to_s)
       expect(page).to have_current_path("/users/#{@user.id}/posts/#{@post.id}")
     end
 
