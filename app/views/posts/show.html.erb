@@ -2,8 +2,8 @@
  <div class='bio font'>
     <h4>Post:<%= @post.id %> by <%= @post.author.name %></h4> 
      <div class='padd'>
-        <h5>Comments:<%= @post.comments_counter %></h5>
-        <h5>Likes:<%= @post.likes_counter %></h5>
+        <h5 id="comment<%=post.id%>">Comments:<%= @post.comments_counter %></h5>
+        <h5 id="like<%=post.id%>">Likes:<%= @post.likes_counter %></h5>
      </div>
     <h4><%= @post.text %></h4>
 

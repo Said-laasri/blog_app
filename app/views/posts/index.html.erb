@@ -26,4 +26,4 @@
 <% end %>
 
 <hr/>
-<button>Pagination</button>
+<button><%= link_to "Pagination", "/users/#{@user.id}/posts/#{@post.id}", {:class => "Pagination"}%></button>
