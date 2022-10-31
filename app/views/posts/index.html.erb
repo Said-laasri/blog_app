@@ -10,7 +10,6 @@
 </div>
 
 
-<% @posts = Post.where(author_id: @user.id)  %>
 <% @posts.each do |post| %>
   <div class='bio font'>
     <a href='/users/<%= @user.id %>/posts/<%= post.id %>'><%= post.id %>: <%= post.title%></a> 
@@ -19,10 +18,7 @@
       <h5>Likes: <%= post.likes_counter %></h5>
     </div>
 
-   
-  
-
-    <% post.recent_comment.each do |comment| %>
+    <% post.comments.each do |comment| %>
       <h5><%= comment.author.name %>: <%= comment.text %> </h5>
     <% end %>
   </div>
