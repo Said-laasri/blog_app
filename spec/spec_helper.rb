@@ -25,6 +25,18 @@ RSpec.configure do |config|
     #     # => "be bigger than 2 and smaller than 4"
     # ...rather than:
     #     # => "be bigger than 2"
+    # config.before(:suite) do
+    #   DatabaseCleaner.clean_with(:truncation)
+    # end
+    # config.before(:each) do
+    #   DatabaseCleaner.strategy = :transaction
+    # end
+    # config.before(:each) do
+    #   DatabaseCleaner.start
+    # end
+    # config.after(:each) do
+    #   DatabaseCleaner.clean
+    # end
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 
