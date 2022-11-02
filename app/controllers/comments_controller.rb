@@ -14,6 +14,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    Comment.delete(params[:user_id])
+  end
+
   private
 
   def comment_text

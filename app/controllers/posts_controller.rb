@@ -28,6 +28,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    Post.delete(params[:user_id])
+  end
+
   private
 
   def post_params
