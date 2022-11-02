@@ -86,3 +86,20 @@ button {
   margin-left: 50%;
   gap: 20px;
 }
+
+.field {
+  display: flex;
+  text-align: center;
+  font-size: 20px;
+  flex-direction: column;
+}
+
+.field > input {
+  font-size: 40px;
+}
+
+.sign {
+  font-size: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 10px;
+}
