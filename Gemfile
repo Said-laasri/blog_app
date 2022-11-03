@@ -68,8 +68,6 @@ end
 gem 'bullet'
 gem 'cancancan'
 gem 'devise'
-gem 'devise-jwt'
-gem 'rack-cors'
 gem 'rails-controller-testing'
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
