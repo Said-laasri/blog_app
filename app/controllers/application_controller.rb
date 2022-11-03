@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-
+  #protect_from_forgery with: :exception
   before_action :update_allowed_parameters, if: :devise_controller?
-  # before_action :authenticate_user!
+ 
 
   protected
 
@@ -10,7 +9,7 @@ class ApplicationController < ActionController::Base
     render json:json, status: status
   end
 
-  def update_allowed_parameters
+    def update_allowed_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:name, :surname, :email, :password, :password_confirmation)
     end
@@ -25,5 +24,10 @@ class ApplicationController < ActionController::Base
   # Catch all CanCan errors and alert the user of the exception
   def after_sign_out_path_for(_resource_or_scope)
     '/users/sign_in'
+  end
+
+  def authenticate_request
+    @current_user = AuthorizeApiRequest.call(request.headers).result
+    render json: { error: 'Not Authorized' }, status: 401 unless @current_user
   end
 end

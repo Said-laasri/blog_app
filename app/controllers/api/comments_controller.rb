@@ -1,5 +1,6 @@
 class Api::CommentsController < ApplicationController
-    protect_from_forgery with: :null_session
+    before_action :authenticate_request
+   # protect_from_forgery with: :null_session
   
     def index
       @comments = Comment.where(post_id: params[:post_id])
