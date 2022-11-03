@@ -30,6 +30,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.author.decrement!(:posts_counter)
     Post.delete(params[:id])
   end
 
