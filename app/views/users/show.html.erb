@@ -12,13 +12,20 @@
   <h4>Bio</h4>
   <p><%= @user.bio %> </p>
 
-<%= link_to "Add New Post", "/users/#{@user.id}/posts/new", {:class => "see_all_post"}%> 
+<%  if can? :create, Post %>
+  <%= link_to "Add New Post", "/users/#{@user.id}/posts/new", {:class => "see_all_post"}%> 
+<% end %>
 
 </article>
 <% @user.recent_posts.each_with_index do |post, index| %>
     <div class='d-flex bio'>
     <a id="<%=post.id%>" href='/users/<%= @user.id %>/posts'> <h3>Post # <%= index + 1 %> <%= post.title %></h3></a>
     <h4><%= post.text %></h4>
+
+<%  if can? :destroy, Post %>
+  <%= button_to 'delete post', "/users/#{@user.id}/posts/#{post.id}", method: :delete%>
+<% end %>
+
     <h5>Comments:<%= post.comments_counter %></h5>
     <h5>Likes:<%= post.likes_counter %></h5>
     </div>

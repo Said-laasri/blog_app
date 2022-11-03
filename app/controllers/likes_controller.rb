@@ -1,4 +1,5 @@
 class LikesController < ApplicationController
+  load_and_authorize_resource
   def create
     @post = Post.find(params[:post_id])
     new_like = current_user.likes.new(author_id: current_user.id, post_id: @post.id)
@@ -8,5 +9,9 @@ class LikesController < ApplicationController
     else
       redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", notice: 'Error occured!'
     end
+  end
+
+  def destroy
+    Like.delete(params[:id])
   end
 end
