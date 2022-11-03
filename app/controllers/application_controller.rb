@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def json_response  json , status
+    render json:json, status: status
+  end
+
   def update_allowed_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:name, :surname, :email, :password, :password_confirmation)
