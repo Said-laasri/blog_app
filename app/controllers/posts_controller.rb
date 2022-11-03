@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    Post.delete(params[:user_id])
+    Post.delete(params[:id])
   end
 
   private

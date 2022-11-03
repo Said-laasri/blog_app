@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    Comment.delete(params[:user_id])
+    Comment.delete(params[:id])
   end
 
   private

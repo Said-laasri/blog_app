@@ -22,5 +22,8 @@ class ApplicationController < ActionController::Base
   redirect_to root_url, alert: exception.message
   end
   # Catch all CanCan errors and alert the user of the exception
+  def after_sign_out_path_for(resource_or_scope)
+    "/users/sign_in"
+  end
   
 end

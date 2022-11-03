@@ -14,6 +14,11 @@
   <div class='bio font'>
     <a id="<%=post.id%>" href='/users/<%= @user.id %>/posts/<%= post.id %>'><%= post.id %>: <%= post.title%></a> 
     <p><%=post.text%></p>
+    <%  if can? :destroy, Post %>
+  <%= button_to 'delete post', "/users/#{@user.id}/posts/#{post.id}", method: :delete%>
+<% end %>
+
+
     <div class='padd'>
       <h5 id="comment<%=post.id%>">Comments: <%= post.comments_counter %></h5>
       <h5 id="like<%=post.id%>">Likes: <%= post.likes_counter %></h5>
@@ -21,6 +26,9 @@
 
     <% post.comments.each do |comment| %>
       <h5><%= comment.author.name %>: <%= comment.text %> </h5>
+  <% if can? :destroy, Comment %>
+      <%= button_to 'delete comment', "/posts/#{post.id}/comments/#{comment.id}", method: :delete %>
+  <% end %>
     <% end %>
   </div>
 <% end %>

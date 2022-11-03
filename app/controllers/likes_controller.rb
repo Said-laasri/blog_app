@@ -10,4 +10,9 @@ class LikesController < ApplicationController
       redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", notice: 'Error occured!'
     end
   end
+
+  def destroy
+    Like.delete(params[:id])
+  end
+  
 end
