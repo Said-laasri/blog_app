@@ -1,16 +1,16 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
-  
+
   def initialize(user)
     # return unless user.admin?
     can :read, :all
     return unless user
-    can [:read, :create, :destroy], [Post, Comment, Like]
-    #can :read, :create, :destroy, Post
+
+    can %i[read create destroy], [Post, Comment, Like]
+    # can :read, :create, :destroy, Post
 
     return unless user.role == 'admin'
+
     can :manage, :all
     # The first argument to `can` is the action you are giving the user
     # permission to do.

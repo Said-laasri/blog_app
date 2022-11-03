@@ -58,6 +58,11 @@ to run controllers test only please run
 - Twitter: [@saidlaasr](https://twitter.com/saidlaasr)
 - LinkedIn: [SAID LAASRI](https://www.linkedin.com/in/said-laasri-8a4367172/)
 
+👤 **Hamma Azarok**
+
+- GitHub: [@hammaazarok](https://github.com/hammaazarok)
+- LinkedIn: [hammaazarok](https://www.linkedin.com/in/hammaazarok)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
