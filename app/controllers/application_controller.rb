@@ -1,15 +1,14 @@
 class ApplicationController < ActionController::Base
-  #protect_from_forgery with: :exception
+  # protect_from_forgery with: :exception
   before_action :update_allowed_parameters, if: :devise_controller?
- 
 
   protected
 
-  def json_response  json , status
-    render json:json, status: status
+  def json_response(json, status)
+    render json:, status:
   end
 
-    def update_allowed_parameters
+  def update_allowed_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
       u.permit(:name, :surname, :email, :password, :password_confirmation)
     end

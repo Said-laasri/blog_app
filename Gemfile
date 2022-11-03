@@ -69,9 +69,9 @@ gem 'bullet'
 gem 'cancancan'
 gem 'devise'
 gem 'jwt'
-gem 'simple_command'
 gem 'rack-cors'
 gem 'rails-controller-testing'
+gem 'simple_command'
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
