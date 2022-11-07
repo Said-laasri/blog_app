@@ -79,7 +79,7 @@ Microverse
 LazyCoders
 Coding Partners
 Inspiration
-etc...
+etc..
 
 # 📝 License
 
