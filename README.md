@@ -24,7 +24,7 @@ Rails
 # Getting Started
 
 Clone this repository
-`$ git clone git@github.com:NickEmma/blog_app.git`
+`$ git clone git@github.com:/blog_app.git`
 
 `$ cd blog_app`
 
